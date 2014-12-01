@@ -20,13 +20,17 @@ void Button::Update()
   {
     if(currentState == 1)
     {
-      Serial.println("Clicked");
+      char buf[15];
+      sprintf(buf, "Clicked btn %d", pin);
+      Serial.println(buf);
       this->state = CLICKED;
     }
   }else {
     if(currentState == 0)
     {
-      Serial.println("Released");
+      char buf[15];
+      sprintf(buf, "Released btn %d", pin);
+      Serial.println(buf);
       this->state = RELEASED;
     }
   }

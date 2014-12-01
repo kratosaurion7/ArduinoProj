@@ -1,3 +1,6 @@
+#ifndef BUTTON_H
+#define BUTTON_H
+
 enum BUTTON_STATE{
   CLICKED,
   RELEASED
@@ -16,3 +19,5 @@ class Button{
   private:
     int pin;
 };
+
+#endif
