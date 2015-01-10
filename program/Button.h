@@ -11,13 +11,21 @@ class Button{
   public:
     BUTTON_STATE state;
     
+    /*Button();*/
     Button(int pinNumber);
     ~Button();
+
+    bool ButtonRepeat;
+
+    virtual void SetUpdateFunc(void (*func)());
     
-    void Update();
+    virtual void Update();
     
-  private:
+  protected:
     int pin;
+
+    void(*_updateAction)();
+
 };
 
 #endif

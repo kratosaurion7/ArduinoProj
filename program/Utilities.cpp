@@ -1,17 +1,17 @@
 #include "Utilities.h"
 
-char* ReadEEPROM(int chars, int startIndex)
-{
-  char buf[chars];
-
-  int i;
-  for(i = startIndex;i < chars;i++)
-  {
-    buf[i] = EEPROM.read(i);
-  }
-  
-  return buf;
-}
+//char* ReadEEPROM(int chars, int startIndex)
+//{
+//  char buf[chars];
+//
+//  int i;
+//  for(i = startIndex;i < chars;i++)
+//  {
+//    buf[i] = EEPROM.read(i);
+//  }
+//  
+//  return buf;
+//}
 
 void WriteEEPROM(char* chars, int count)
 {

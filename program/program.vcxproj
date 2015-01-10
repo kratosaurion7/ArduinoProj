@@ -73,15 +73,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnalogButton.h" />
     <ClInclude Include="Button.h">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Utilities.h">
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClInclude Include="Visual Micro\.program.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnalogButton.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
