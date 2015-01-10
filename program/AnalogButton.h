@@ -10,14 +10,10 @@ public:
     AnalogButton(int analogPin, int targetValue, int neutralValue);
     ~AnalogButton();
 
-    void Update();
-
-    
-
 private:
-    bool SignalWithinRange(int currentSignal);
+    bool ButtonIsUp();
 
-    bool SignalIsNeutral(int currentSignal);
+    bool ButtonIsDown();
 
     int _targetVal;
 

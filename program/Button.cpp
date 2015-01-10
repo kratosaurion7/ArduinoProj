@@ -24,11 +24,9 @@ Button::~Button()
 
 void Button::Update()
 {
-  int currentState = digitalRead(pin);
-  
   if(this->state == RELEASED)
   {
-    if(currentState == 1)
+    if(this->ButtonIsUp())
     {
 #if defined(BTN_DEBUG_OUTPUT)
       char buf[15];
@@ -47,7 +45,7 @@ void Button::Update()
       }
     }
   }else {
-    if(currentState == 0)
+    if(this->ButtonIsDown())
     {
 #if  defined(BTN_DEBUG_OUTPUT)
       char buf[15];
@@ -58,6 +56,18 @@ void Button::Update()
     }
   }
 };
+
+bool Button::ButtonIsUp()
+{
+    int buttonValue = digitalRead(pin);
+
+    return buttonValue == HIGH;
+};
+
+bool Button::ButtonIsDown()
+{
+    return !ButtonIsUp();
+}
 
 void Button::SetUpdateFunc(void(*func)())
 {

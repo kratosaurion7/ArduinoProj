@@ -11,7 +11,6 @@ class Button{
   public:
     BUTTON_STATE state;
     
-    /*Button();*/
     Button(int pinNumber);
     ~Button();
 
@@ -20,6 +19,10 @@ class Button{
     virtual void SetUpdateFunc(void (*func)());
     
     virtual void Update();
+
+    virtual bool ButtonIsUp();
+
+    virtual bool ButtonIsDown();
     
   protected:
     int pin;
