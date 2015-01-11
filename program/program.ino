@@ -14,25 +14,32 @@
 #define LED_Y 9
 #define LED_G 10
 
+#define PMOTOR 6
+
 Button *btnOne;
 Button *btnTwo;
+Button *btnThree;
 
 void setup() {
  
   pinMode(LED_R, OUTPUT);
   pinMode(LED_Y, OUTPUT);
   pinMode(LED_G, OUTPUT);
+  pinMode(PMOTOR, OUTPUT);
   //
   //btnOne = new Button(btn1_pin);
   //btnTwo = new Button(btn2_pin);
 
   btnOne = new AnalogButton(ANALOG_PIN, 84, ANALOG_NEUTRAL);
   btnTwo = new AnalogButton(ANALOG_PIN, 798, ANALOG_NEUTRAL);
+  btnThree = new AnalogButton(ANALOG_PIN, 757, ANALOG_NEUTRAL);
 
   btnOne->SetUpdateFunc(LightFunctionOne);
   btnTwo->SetUpdateFunc(LightFunctionTwo);
-  
+  btnThree->SetUpdateFunc(ActivateMotor);
+
   btnOne->ButtonRepeat = true;
+  btnThree->ButtonRepeat = true;
 
   Serial.begin(9600);
 };
@@ -40,9 +47,12 @@ void setup() {
 void loop() {
     UpdateTime();
 
+    CheckAnalogPin0();
+
     btnOne->Update();
     btnTwo->Update();
-    
+    btnThree->Update();
+
     return;
 
     //delay(200); // Global delay
@@ -157,7 +167,12 @@ void LightFunctionTwo()
 
     delay(150); // Delay to wait
 
-}
+};
+
+void ActivateMotor()
+{
+    digitalWrite(PMOTOR, HIGH);
+};
 
 int CheckAnalogPin0()
 {

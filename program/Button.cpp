@@ -2,12 +2,6 @@
 
 #include <Arduino.h>
 
-//Button::Button()
-//{
-//    this->pin = 0;
-//    this->_updateAction = NULL;
-//};
-
 Button::Button(int pinNumber)
 {
   this->pin = pinNumber;
